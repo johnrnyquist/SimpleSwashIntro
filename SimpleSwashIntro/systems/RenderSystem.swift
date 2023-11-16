@@ -1,6 +1,6 @@
 //
 //  RenderSystem.swift
-//  BasicAshProject
+//  SimpleSwashIntro
 //
 //  Created by John Nyquist on 11/15/23.
 //
@@ -10,12 +10,15 @@ import Swash
 import SpriteKit
 
 class RenderSystem: System {
+
 	private var scene: SKScene
 	private var nodes: NodeList?
+
 
 	init(container: SKScene) {
 		scene = container
 	}
+
 
 	override func addToEngine(engine: Engine) {
 		nodes = engine.getNodeList(nodeClassType: RenderNode.self)
@@ -28,6 +31,7 @@ class RenderSystem: System {
 		nodes?.nodeRemoved.add(Listener(removeFromDisplay))
 	}
 
+
 	private func addToDisplay(_ node: Node) {
 		guard
 			let component = node[RenderableComonent.self],
@@ -36,6 +40,7 @@ class RenderSystem: System {
 		scene.addChild(sprite)
 	}
 
+
 	private func removeFromDisplay(_ node: Node) {
 		guard
 			let component = node[RenderableComonent.self],
@@ -43,6 +48,7 @@ class RenderSystem: System {
 		else { return }
 		sprite.removeFromParent()
 	}
+
 
 	override func update(time: TimeInterval) {
 		var renderNode = nodes?.head
@@ -57,6 +63,7 @@ class RenderSystem: System {
 			renderNode = renderNode!.next
 		}
 	}
+	
 
 	override func removeFromEngine(engine: Engine) {
 		nodes = nil

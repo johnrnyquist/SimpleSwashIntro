@@ -1,6 +1,6 @@
 //
 //  BasicSwash.swift
-//  BasicAshProject
+//  SimpleSwashIntro
 //
 //  Created by John Nyquist on 11/15/23.
 //
@@ -8,22 +8,41 @@
 import Swash
 import SpriteKit
 
+
 class IntroToSwash {
+	
 	var container: SKScene
 	var engine: Engine!
 	var tickProvider: FrameTickProvider!
 
+
 	init(container: SKScene, width: Double, height: Double) {
+
+		// our container is an SKScene, we use it to render things to
 		self.container = container
+
+		// this is the Swash engine
 		engine = Engine()
-		engine .addSystem(system: RenderSystem(container: container), priority: SystemPriorities.render.rawValue)
-		let entity = ShipEntity(x: width/2, y: height/2, rotation: 0)
-		try? engine.addEntity(entity: entity)
+
+		// add some systems to the engine
+		engine
+			.addSystem(system: MovementSystem(), priority: SystemPriorities.move.rawValue)
+			.addSystem(system: RenderSystem(container: container), priority: SystemPriorities.render.rawValue)
+
+		// create a ship entity so we see something when it starts
+		let ship = ShipEntity(x: width/2, y: height/2, rotation: 0)
+
+		// the entity must be added to the engine
+		try? engine.addEntity(entity: ship)
 	}
+
 
 	func start() {
 		tickProvider = FrameTickProvider()
+
+		// listen for ticks, the engine's update() method will be called whenever there's a tick
 		tickProvider.add(Listener(engine.update))
+
 		tickProvider.start()
 	}
 }
