@@ -29,7 +29,7 @@ class GameScene: SKScene {
 
 	func touchDown(atPoint pos: CGPoint, touch: UITouch) {
 		let entity = ShipEntity(x: pos.x, y: pos.y, rotation: CGFloat.random(in: 0...360))
-		try? game.engine.addEntity(entity: entity)
+		try? game.engine.add(entity: entity)
 	}
 
 

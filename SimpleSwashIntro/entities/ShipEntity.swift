@@ -33,7 +33,7 @@ class ShipEntity: Entity {
 		// give the entity a unique name
 		Self.shipCount += 1
 		let name = "ship\(Self.shipCount)"
-		super.init(name: name)
+		super.init(named: name)
 
 		// configure the entity
 		self

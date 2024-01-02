@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/johnrnyquist/Swash.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "3f5c3275c114d38a8f8dc6b2a07f942021194234"
+        "revision" : "10c66cb0b4dea0b41af32dab5c64f9982c4b86c1",
+        "version" : "1.0.0"
       }
     }
   ],

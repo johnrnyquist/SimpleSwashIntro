@@ -26,14 +26,14 @@ class IntroToSwash {
 
 		// add some systems to the engine
 		engine
-			.addSystem(system: MovementSystem(), priority: SystemPriorities.move.rawValue)
-			.addSystem(system: RenderSystem(container: container), priority: SystemPriorities.render.rawValue)
+			.add(system: MovementSystem(), priority: SystemPriorities.move.rawValue)
+			.add(system: RenderSystem(container: container), priority: SystemPriorities.render.rawValue)
 
 		// create a ship entity so we see something when it starts
 		let ship = ShipEntity(x: width/2, y: height/2, rotation: 0)
 
 		// the entity must be added to the engine
-		try? engine.addEntity(entity: ship)
+		try? engine.add(entity: ship)
 	}
 
 
