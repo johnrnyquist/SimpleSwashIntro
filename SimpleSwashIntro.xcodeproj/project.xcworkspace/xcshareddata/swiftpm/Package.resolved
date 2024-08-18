@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnrnyquist/Swash.git",
+      "state" : {
+        "revision" : "10c66cb0b4dea0b41af32dab5c64f9982c4b86c1",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
